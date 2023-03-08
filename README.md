@@ -16,6 +16,12 @@ docker-compose up -d
 ```
 6.  Correr la app: ```yarn start:dev```
 
+# Ejecutar Pruebas Unitarias.
+
+1.  ```yarn test:cov```
+
+    Nota: El Coverage de las pruebas unitarias se puede ver en consola sin embargo jest nos proporciona una carpeta llamada coverage dentro de ella hay otra carpeta llamada Icov-report, Pueden ejecutar el index.html de esta carpeta y ver el coverage más detallado.
+
 # Validaciones Realizadas.
 
 1.  La cantidad de productos en inventario, no supere la cantidad de productos solicitados en la compra.

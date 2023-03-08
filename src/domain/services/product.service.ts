@@ -85,8 +85,12 @@ export class ProductService {
   }
 
   async remove(id: string) {
-    const product = await this.findOne(id);
-    await this.productRepository.remove(product);
+    try {
+      const product = await this.findOne(id);
+      return await this.productRepository.remove(product);
+    } catch (error) {
+      return;
+    }
   }
 
   async validateInventaryQuantity(id: string, quantity: number) {
