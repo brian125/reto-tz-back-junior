@@ -58,13 +58,15 @@ export class BuyService {
     }
   }
 
-  findAll(paginationDto: PaginationDto) {
-    const { limit = 10, offset = 0 } = paginationDto;
+  async findAll(paginationDto: PaginationDto) {
+    const { limit , offset } = paginationDto;
 
-    return this.buyRepository.find({
+    const buys = await this.buyRepository.find({
       take: limit,
       skip: offset,
     });
+
+    return { buys, 'totalElements':  (await this.buyRepository.find()).length }
   }
 
   async findOne(id: string) {
