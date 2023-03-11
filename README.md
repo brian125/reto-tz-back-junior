@@ -8,13 +8,12 @@
 
 1.  Clonar el proyecto
 2.  ```yarn install```
-3.  Renombrar el archivo ```.env.template``` como: ```.env```
-4.  Cambiar las varibles de entorno que se encuentran en el archivo ```.env``` 
-5.  Levantar la base de datos
+3.  Cambiar las varibles de entorno que se encuentran en el archivo ```.env``` 
+4.  Levantar la base de datos
 ```
 docker-compose up -d 
 ```
-6.  Correr la app: ```yarn start:dev```
+5.  Correr la app: ```yarn start:dev```
 
 # Ejecutar Pruebas Unitarias.
 

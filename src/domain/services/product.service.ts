@@ -40,13 +40,15 @@ export class ProductService {
     }
   }
 
-  findAll(paginationDto: PaginationDto) {
-    const { limit = 10 , offset = 0 } = paginationDto;
+  async findAll(paginationDto: PaginationDto) {
+    const { limit  , offset } = paginationDto;
 
-    return this.productRepository.find({
+    const products = await this.productRepository.find({
       take: limit,
       skip: offset,
-    });
+    })
+
+    return { products, 'totalElements':  (await this.productRepository.find()).length }
   }
 
   async findOne(id: string) {
@@ -87,6 +89,7 @@ export class ProductService {
   async remove(id: string) {
     try {
       const product = await this.findOne(id);
+      console.log(product);
       return await this.productRepository.remove(product);
     } catch (error) {
       return;
