@@ -1,11 +1,12 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Product } from './product.entity';
 
 @Entity()
 export class Buy {
-  @PrimaryColumn('text', {
-    unique: true,
-  })
+  @PrimaryGeneratedColumn('uuid')
+  mainId: string;
+  
+  @Column('text')
   id: string;
 
   @Column('text')
